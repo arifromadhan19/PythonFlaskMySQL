@@ -30,3 +30,35 @@ def save_product():
     db.session.commit()
     return redirect("/")
 
+@mod_product.route("/edit/<string:id_product>", methods=["GET"])
+def edit(id_product):
+    product = Product.query.get(id_product)
+    if not product:
+        return "Product not found"
+
+    return render_template("product/edit.html", product=product)
+
+@mod_product.route("/edit/<string:id_product>", methods=["POST"])
+def save_edit(id_product):
+    print("=> ",id_product)
+    form = ProductForm()
+
+    if not form.validate():
+        return jsonify({"error ": form.errors})
+
+    product = Product.query.get(id_product)
+
+    if not product:
+        return "product not found"
+
+    product.id_product = form.id_product.data
+    product.name_product = form.name_product.data
+
+    db.session.commit()
+    return redirect("/")
+
+@mod_product.route("/delete/<string:id_product>", methods=["GET"])
+def delete(id_product):
+    Product.query.filter(Product.id_product == id_product).delete()
+    db.session.commit()
+    return redirect("/")

@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit Product</title>
 </head>
 <body>
 
+    <h1>Edit Product</h1>
+    <form action="/edit/{{product.id_product}}" method="post">
+        id_product : <input name="id_product" type="text" value="{{product.id_product}}" /><br/>
+        name_product: <input name="name_product" type="text" value="{{product.name_product}}"/><br/>
+        <input type="submit" value="Save">
+    </form>
 </body>
 </html>
