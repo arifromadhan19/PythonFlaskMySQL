@@ -9,6 +9,5 @@ application.secret_key = application.config.get("SECRET_KEY")
 
 db = SQLAlchemy(application)
 
-
 from app import mod
 from app import model
