@@ -1,0 +1,6 @@
+
+SECRET_KEY = "secret"
+
+# DB CONFIG
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:12345619@127.0.0.1/db_product"
+SQLALCHEMY_TRACK_MODIFICATIONS = True

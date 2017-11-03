@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Product</title>
+</head>
+<body>
+    <h1>CRUD MYSQL WITH PYTHON FLASK</h1>
+    <h1>by arifromadhan19@gmail.com</h1>
+
+    <p>{{message}}</p>
+    <p><a href="/create">create</a><p>
+    <table border="1">
+        <tr>
+            <td>Id product</td>
+            <td>Name Product</td>
+            <td>Action</td>
+        </tr>
+
+        {% for p in list_product %}
+            <tr>
+                <td>{{p.id_product}}</td>
+                <td>{{p.name_product}}</td>
+                <td>
+                    <a href="/edit/{{p.id_product}}">Edit</a>
+                    <a href="/delete/{{p.id_product}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor  %}
+    </table>
+
+</body>
+</html>
